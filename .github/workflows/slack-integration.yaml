@@ -18,46 +18,30 @@ jobs:
           payload: |
             {
               "channel": "#website",
-              "username": "GitHub Actions Bot",
-              "icon_url": "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png",
-              "text": "Deploy *${{ inputs.release_version }}* to *${{ inputs.environment }}*",
               "attachments": [
-                {
-                  "fallback": "Deploy following *${{ inputs.release_version }}* to *${{ inputs.environment }}*",
-                  "color": "good",
-                  "fields": [
-                    {
-                      "title": "*Job Status*",
-                      "value": "${{ job.status }}\n${{ job.status == 'success' && ':tada:' || ':large_red_circle:' }}",
-                      "short": true
-                    },
-                    {
-                      "title": "*Job URL*",
-                      "value": "<${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}|Click here for details>",
-                      "short": true
-                    },
-                    {
-                      "title": "*Branch*",
-                      "value": "${{ github.ref }}",
-                      "short": true
-                    },
-                    {
-                      "title": "*Deployed by*",
-                      "value": "${{ github.actor }}",
-                      "short": true
-                    },
-                    {
-                      "title": "*Webapp Name*",
-                      "value": "${{ matrix.AZURE_Details.webapp_name }}",
-                      "short": true
-                    },
-                    {
-                      "title": "*Webapp URL*",
-                      "value": "<https://${{ matrix.AZURE_Details.webapp_name }}|${{ matrix.AZURE_Details.webapp_name }}.azurewebsites.net>",
-                      "short": true
-                    }
-                  ]
-                }
+                  {
+                      "fallback": "Plain-text summary of the attachment.",
+                      "color": "#2eb886",
+                      "pretext": "Optional text that appears above the attachment block",
+                      "author_name": "Bobby Tables",
+                      "author_link": "http://flickr.com/bobby/",
+                      "author_icon": "http://flickr.com/icons/bobby.jpg",
+                      "title": "Slack API Documentation",
+                      "title_link": "https://api.slack.com/",
+                      "text": "Optional text that appears within the attachment",
+                      "fields": [
+                          {
+                              "title": "Priority",
+                              "value": "High",
+                              "short": false
+                          }
+                      ],
+                      "image_url": "http://my-website.com/path/to/image.jpg",
+                      "thumb_url": "http://example.com/path/to/thumb.png",
+                      "footer": "Slack API",
+                      "footer_icon": "https://platform.slack-edge.com/img/default_application_icon.png",
+                      "ts": 123456789
+                  }
               ]
             }
         env:
