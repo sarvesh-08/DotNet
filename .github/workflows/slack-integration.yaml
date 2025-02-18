@@ -3,12 +3,11 @@ name: slack-integration
 on:
   push:
     branches:
-      -main
+      - main
   workflow_dispatch:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
     steps:
       - name: Send a slack notification for the deployment
         id: slack
@@ -20,7 +19,7 @@ jobs:
               "channel": "#website",
               "username": "GitHub Actions Bot",
               "icon_url": "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png",
-              "text": "Deploy *${{ inputs.release_version }}* to *${{ inputs.environment }}*",
+              "text": "Deploy *${{ inputs.release_version }}* to *${{ inputs.environment }}*"
             }
         env:
           SLACK_WEBHOOK_URL: https://hooks.slack.com/services/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
