@@ -16,7 +16,7 @@ jobs:
           echo 'Payload being sent to Slack:'
           echo '{
             "channel": "C123ABC456",
-            "text": "",
+            "text": " ",
             "attachments": [
               {
                 "fallback": "Plain-text summary of the attachment.",
