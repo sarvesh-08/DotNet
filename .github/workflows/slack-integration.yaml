@@ -23,4 +23,4 @@ jobs:
               "text": "Deploy *${{ inputs.release_version }}* to *${{ inputs.environment }}*"
             }
         env:
-          SLACK_WEBHOOK_URL: https://hooks.slack.com/services/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
+          SLACK_WEBHOOK_URL: https://hooks.slack.com/services/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
