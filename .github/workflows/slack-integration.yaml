@@ -10,22 +10,15 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Send notification to Slack
+      - name: Post a message in a channel
         uses: slackapi/slack-github-action@v2.0.0
         with:
-          slack_webhook_url: ${{ secrets.SLACK_WEBHOOK }}  # Store your webhook URL in GitHub Secrets
-          channel: '#website'  # Replace with your Slack channel name
-          username: 'GitHub Actions Bot'  # Customize the username
-          icon_emoji: ':rocket:'  # You can use a custom emoji
-          text: 'A new commit was pushed to the main branch!'
-          attachments: |
-            [
-              {
-                "fallback": "New Commit Details",
-                "color": "#36a64f",
-                "pretext": "Here are the commit details:",
-                "author_name": "GitHub Actions",
-                "author_link": "https://github.com/actions",
-                "title": "Commit Details"
-              }
-            ]
+          webhook: ${{ secrets.SLACK_WEBHOOK }}
+          webhook-type: incoming-webhook
+          payload: |
+            text: "*GitHub Action build result*: ${{ job.status }}\n${{ github.event.pull_request.html_url || github.event.head_commit.url }}"
+            blocks:
+              - type: "section"
+                text:
+                  type: "mrkdwn"
+                  text: "GitHub Action build result: ${{ job.status }}\n${{ github.event.pull_request.html_url || github.event.head_commit.url }}"
