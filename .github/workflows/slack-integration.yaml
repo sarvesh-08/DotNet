@@ -2,7 +2,8 @@ name: slack-integration
 
 on:
   push:
-    branches: -main
+    branches:
+      -main
   workflow_dispatch:
 
 jobs:
@@ -20,44 +21,6 @@ jobs:
               "username": "GitHub Actions Bot",
               "icon_url": "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png",
               "text": "Deploy *${{ inputs.release_version }}* to *${{ inputs.environment }}*",
-              "attachments": [
-                {
-                  "fallback": "Deploy following *${{ inputs.release_version }}* to *${{ inputs.environment }}*",
-                  "color": "good",
-                  "fields": [
-                    {
-                      "title": "*Job Status*",
-                      "value": "${{ job.status }}\n${{ job.status == 'success' && ':tada:' || ':large_red_circle:' }}",
-                      "short": true
-                    },
-                    {
-                      "title": "*Job URL*",
-                      "value": "<${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}|Click here for details>",
-                      "short": true
-                    },
-                    {
-                      "title": "*Branch*",
-                      "value": "${{ github.ref }}",
-                      "short": true
-                    },
-                    {
-                      "title": "*Deployed by*",
-                      "value": "${{ github.actor }}",
-                      "short": true
-                    },
-                    {
-                      "title": "*Webapp Name*",
-                      "value": "${{ matrix.AZURE_Details.webapp_name }}",
-                      "short": true
-                    },
-                    {
-                      "title": "*Webapp URL*",
-                      "value": "<https://${{ matrix.AZURE_Details.webapp_name }}|${{ matrix.AZURE_Details.webapp_name }}.azurewebsites.net>",
-                      "short": true
-                    }
-                  ]
-                }
-              ]
             }
         env:
           SLACK_WEBHOOK_URL: https://hooks.slack.com/services/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
