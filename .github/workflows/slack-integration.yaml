@@ -13,6 +13,8 @@ jobs:
       - name: Send message to Slack via Webhook with Attachments
         uses: slackapi/slack-github-action@v2.0.0
         with:
+          webhook: ${{ secrets.SLACK_WEBHOOK }}
+          webhook-type: incoming-webhook
           payload: |
             {
               "text": "A new commit has been pushed!",
@@ -27,4 +29,3 @@ jobs:
                 }
               ]
             }
-          slack-webhook-url: ${{ secrets.SLACK_WEBHOOK }}
