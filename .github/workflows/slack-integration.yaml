@@ -18,6 +18,7 @@ jobs:
           payload: |
             {
               "channel": "#website",
+              "text": "heelo"
               "attachments": [
                   {
                       "fallback": "Plain-text summary of the attachment.",
