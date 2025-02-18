@@ -10,24 +10,22 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Send a slack notification for the deployment
-        id: slack
+      - name: Send notification to Slack
         uses: slackapi/slack-github-action@v2.0.0
         with:
-          # This data can be any valid JSON from a previous step in the GitHub Action
-          webhook: ${{ secrets.SLACK_WEBHOOK_URL }}
-          webhook-type: incoming-webhook
-          payload: |
-            {
-              "channel": "#website",
-              "text": "das",
-              "attachments": [
-                {
-                    "fallback": "Plain-text summary of the attachment.",
-                    "color": "#2eb886",
-                    "pretext": "Optional text that appears above the attachment block",
-                    "author_name": "Bobby Tables",
-                    "author_link": "http://flickr.com/bobby/",
-                }
-              ]
-            }
+          slack_webhook_url: ${{ secrets.SLACK_WEBHOOK }}  # Store your webhook URL in GitHub Secrets
+          channel: '#website'  # Replace with your Slack channel name
+          username: 'GitHub Actions Bot'  # Customize the username
+          icon_emoji: ':rocket:'  # You can use a custom emoji
+          text: 'A new commit was pushed to the main branch!'
+          attachments: |
+            [
+              {
+                "fallback": "New Commit Details",
+                "color": "#36a64f",
+                "pretext": "Here are the commit details:",
+                "author_name": "GitHub Actions",
+                "author_link": "https://github.com/actions",
+                "title": "Commit Details"
+              }
+            ]
