@@ -14,8 +14,6 @@ jobs:
         id: slack
         uses: slackapi/slack-github-action@v2.0.0
         with: # Reference secret for security
-          channel: "#website"
-          text: "das"
           webhook: ${{ secrets.SLACK_WEBHOOK }}
           webhook-type: incoming-webhook
           attachments: |
