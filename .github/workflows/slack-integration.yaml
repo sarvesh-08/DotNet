@@ -17,10 +17,10 @@ jobs:
           # This data can be any valid JSON from a previous step in the GitHub Action
           payload: |
             {
-              "channel": "#general",
+              "channel": "#website",
               "username": "GitHub Actions Bot",
               "icon_url": "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png",
               "text": "Deploy *${{ inputs.release_version }}* to *${{ inputs.environment }}*"
             }
         env:
-          SLACK_WEBHOOK_URL: https://hooks.slack.com/services/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
+          SLACK_WEBHOOK_URL: https://hooks.slack.com/services/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
