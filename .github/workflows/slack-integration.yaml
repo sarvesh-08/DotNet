@@ -18,6 +18,7 @@ jobs:
           payload: |
             {
                 "channel": "C123ABC456",
+                "text": "sa",
                 "attachments": [
                     {
                         "fallback": "Plain-text summary of the attachment.",
