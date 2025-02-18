@@ -17,7 +17,7 @@ jobs:
           # This data can be any valid JSON from a previous step in the GitHub Action
           payload: |
             {
-              "channel": "#website",
+              "channel": "#random",
               "username": "GitHub Actions Bot",
               "icon_url": "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png",
               "text": "Deploy *${{ inputs.release_version }}* to *${{ inputs.environment }}*"
