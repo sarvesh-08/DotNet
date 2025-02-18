@@ -7,6 +7,7 @@ on:
   workflow_dispatch:
 
 jobs:
+  runs-on: ubuntu-latest
   build:
     steps:
       - name: Send a slack notification for the deployment
