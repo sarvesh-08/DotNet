@@ -18,7 +18,7 @@ jobs:
           payload: |
             {
               "text": "A new commit has been pushed!",
-              "channel": "#website"
+              "channel": "#website",
               "attachments": [
                 {
                   "fallback": "Commit details",
